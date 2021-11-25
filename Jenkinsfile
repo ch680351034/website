@@ -12,8 +12,10 @@ pipeline{
 
          stage('application code containerlization') {
             steps {
+               sh '''
                docker build -t websiteapp .
                docker run -d -p 8088:80 websiteapp
+               '''
             }
         }
 
